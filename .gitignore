@@ -1,0 +1,10 @@
+# Игнорируемые файлы и каталоги
+.DS_Store
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Дампы и отчеты
+reports/
+*.log
+*.tmp

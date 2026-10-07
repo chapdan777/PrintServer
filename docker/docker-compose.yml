@@ -1,0 +1,35 @@
+name: printserver
+
+services:
+  cups:
+    build: .
+    container_name: printserver-cups
+    network_mode: host
+    environment:
+      - CUPS_ADMIN_USER=${CUPS_ADMIN_USER:-admin}
+      - CUPS_ADMIN_PASSWORD=${CUPS_ADMIN_PASSWORD:-admin}
+
+    volumes:
+      - cups-config:/etc/cups
+      - cups-spool:/var/spool/cups
+      - cups-cache:/var/cache/cups
+
+  samba:
+    build: ./samba
+    container_name: printserver-samba
+    network_mode: host
+    restart: unless-stopped
+
+    depends_on:
+      - cups
+
+    volumes:
+      - samba-state:/var/lib/samba
+      - samba-cache:/var/cache/samba
+
+volumes:
+  cups-config:
+  cups-spool:
+  cups-cache:
+  samba-state:
+  samba-cache:
