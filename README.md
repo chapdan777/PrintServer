@@ -21,22 +21,22 @@ flowchart TD
             Avahi["Avahi Daemon (mDNS, UDP 5353, eth0 IPv4)"]
             CUPS["CUPS 2.4.x (Scheduler, TCP 631)"]
             WebGUI["CUPS Web Administration (HTTP basic: admin/admin)"]
-            Queues["Очереди печати:\n• HP_M428_241\n• HP_M428_244"]
+            Queues["Очереди печати:<br/>• HP_M428_241<br/>• HP_M428_244"]
             
-            Avahi -.->|mDNS анонсы очередей| W10
+            Avahi -.->|"mDNS анонсы очередей"| W10
             CUPS --- Queues
             WebGUI --- CUPS
         end
     end
 
     subgraph Printers["Физические МФУ HP LaserJet Pro"]
-        HP241["HP LaserJet Pro MFP M428fdn\n(192.168.2.241:631 IPP)"]
-        HP244["HP LaserJet Pro MFP M428fdw\n(192.168.2.244:631 IPP)"]
+        HP241["HP LaserJet Pro MFP M428fdn<br/>(192.168.2.241:631 IPP)"]
+        HP244["HP LaserJet Pro MFP M428fdw<br/>(192.168.2.244:631 IPP)"]
     end
 
-    W10_Driver ==>|Документ PDF 1.7 / IPP (TCP 631)| CUPS
-    Queues ==>|IPP Print (TCP 631)| HP241
-    Queues ==>|IPP Print (TCP 631)| HP244
+    W10_Driver ==>|"Документ PDF 1.7 / IPP (TCP 631)"| CUPS
+    Queues ==>|"IPP Print (TCP 631)"| HP241
+    Queues ==>|"IPP Print (TCP 631)"| HP244
 ```
 
 ### Ключевые особенности:
