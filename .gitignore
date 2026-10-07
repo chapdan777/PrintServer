@@ -8,3 +8,7 @@ __pycache__/
 reports/
 *.log
 *.tmp
+
+# Локальные заметки и карты ИИ-агентов (не публикуются в Git)
+AGENTS.md
+NOTES.md

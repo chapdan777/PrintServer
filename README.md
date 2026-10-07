@@ -93,24 +93,22 @@ docker compose up -d cups
 
 ```
 PrintServer/
-├── README.md                   # Главное описание проекта
-├── .env                        # Конфигурация локального окружения
-├── .env.example                # Шаблон конфигурации
-├── .gitignore                  # Исключения Git
-├── AGENTS.md                   # Контекстная карта для ИИ-агентов
-├── NOTES.md                    # История сессий и Handoff
-├── docs/                       # Документация проекта
-│   ├── ADMIN_GUIDE.md          # Полное руководство системного администратора
-│   └── PRINTSERVER_GUIDE.md    # Памятка по эксплуатации и подключению
-├── docker/                     # Конфигурации контейнеров Docker
-│   ├── docker-compose.yml      # Спецификация сервисов CUPS и Samba
-│   ├── Dockerfile              # Сборка образа на Debian 13
-│   ├── start.sh                # Скрипт инициализации D-Bus, Avahi и CUPS
-│   └── samba/                  # Legacy-модуль Samba (опционально)
-└── scripts/                    # Инструменты автоматизации и диагностики
-    ├── deploy/                 # Скрипты развертывания и привязки интерфейсов
-    ├── diagnostics/            # Проверка IPP, mDNS, логов и очередей
-    └── windows/                # PowerShell-скрипты диагностики клиентов
+├── README.md                      # Главное описание проекта
+├── .env                           # Конфигурация локального окружения
+├── .env.example                   # Шаблон конфигурации
+├── .gitignore                     # Исключения Git
+├── docs/                          # Документация проекта
+│   ├── ADMIN_GUIDE.md             # Полное руководство системного администратора
+│   └── PRINTSERVER_GUIDE.md       # Памятка по эксплуатации и подключению
+├── docker/                        # Конфигурации контейнеров Docker
+│   ├── docker-compose.yml         # Спецификация сервисов CUPS и Samba
+│   ├── Dockerfile                 # Сборка образа на Debian 13
+│   ├── start.sh                   # Скрипт инициализации D-Bus, Avahi и CUPS
+│   └── samba/                     # Legacy-модуль Samba (опционально)
+└── scripts/                       # Скрипты администрирования и мониторинга
+    ├── check_health.sh            # Комплексная проверка статуса CUPS и mDNS
+    ├── backup_config.sh           # Резервное копирование конфигурации
+    └── windows_check_printers.ps1 # Проверка очередей и дуплекса на Windows
 ```
 
 ---
